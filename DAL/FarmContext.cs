@@ -3,9 +3,10 @@ namespace DAL
     using Entities.Models;
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
 
-    public class FarmContext : DbContext
+    public class FarmContext : DbContext, IFarmContext
     {
         public FarmContext()
             : base("name=FarmContext")
@@ -13,6 +14,11 @@ namespace DAL
         }
 
         public virtual DbSet<FarmEntity> FarmEntities { get; set; }
+
+        public new DbEntityEntry<FarmEntity> Entry(FarmEntity farm)
+        {
+            return base.Entry(farm);
+        }
 
         public override int SaveChanges()
         {

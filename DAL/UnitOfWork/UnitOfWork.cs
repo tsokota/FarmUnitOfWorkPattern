@@ -9,16 +9,16 @@ namespace DAL
 {
     public class UnitOfWork : IDisposable, IUnitOfWork
     {
-        private FarmContext db = new FarmContext();
+        private IFarmContext db;
 
         private IFarmRepository _farmRepository;
 
         private bool disposed;
 
-        public UnitOfWork(FarmContext fc, IFarmRepository r)
+        public UnitOfWork(IFarmContext farmContext, IFarmRepository repo)
         {
-            db = fc;
-            _farmRepository = r;
+            db = farmContext;
+            _farmRepository = repo;
             disposed = false;
         }
 

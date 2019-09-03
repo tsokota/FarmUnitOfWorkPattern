@@ -10,9 +10,9 @@ namespace DAL.Repositories
 {
     public class FarmRepository : IFarmRepository
     {
-        private FarmContext db = new FarmContext();
+        private IFarmContext db = new FarmContext();
 
-        public FarmRepository(FarmContext farm)
+        public FarmRepository(IFarmContext farm)
         {
             db = farm;
         }

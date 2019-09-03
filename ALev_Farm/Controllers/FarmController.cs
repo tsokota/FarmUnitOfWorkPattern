@@ -25,12 +25,12 @@ namespace ALev_Farm.Controllers
             return _unitOfWork.FarmRepository.GetAll();
         }
 
-        public void Post([FromBody] FarmEntity farm)
+        public void Post([FromBody]FarmEntity farm)
         {
             _unitOfWork.FarmRepository.Add(farm);
         }
 
-        public void Delete([FromBody] FarmEntity farm)
+        public void Delete([FromBody]FarmEntity farm)
         {
             _unitOfWork.FarmRepository.DeleteFarm(farm);
         }
@@ -40,7 +40,7 @@ namespace ALev_Farm.Controllers
             return _unitOfWork.FarmRepository.GetFarmById(id);
         }
 
-        public void Update([FromBody] FarmEntity farm)
+        public void Update([FromBody]FarmEntity farm)
         {
             _unitOfWork.FarmRepository.UpdateFarm(farm);
         }

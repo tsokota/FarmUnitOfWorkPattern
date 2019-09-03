@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FarmContext.cs" />
+    <Compile Include="IFarmContext.cs" />
     <Compile Include="Migrations\201909031838090_Initial.cs" />
     <Compile Include="Migrations\201909031838090_Initial.Designer.cs">
       <DependentUpon>201909031838090_Initial.cs</DependentUpon>
