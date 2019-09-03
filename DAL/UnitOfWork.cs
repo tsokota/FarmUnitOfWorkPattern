@@ -9,26 +9,27 @@ namespace DAL
 {
     public class UnitOfWork
     {
-        private FarmStorage _farmStorage;
+        //private FarmStorage _farmStorage;
 
-        private IFarmRepository _farmRepository;
+        //private IFarmRepository _farmRepository;
 
-        public UnitOfWork()
-        {
-            _farmStorage = new FarmStorage();
-        }
+        //public UnitOfWork()
+        //{
+        //    _farmStorage = new FarmStorage();
+        //    _farmStorage = null;
+        //}
 
-        public IFarmRepository FarmRepository
-        {
-            get
-            {
-                if(_farmRepository== null)
-                {
-                    _farmRepository = new FarmRepository(_farmStorage);
-                }
+        //public IFarmRepository FarmRepository
+        //{
+        //    get
+        //    {
+        //        if(_farmRepository== null)
+        //        {
+        //            _farmRepository = new FarmRepository(_farmStorage);
+        //        }
 
-                return _farmRepository;
-            }
-        }
+        //        return _farmRepository;
+        //    }
+        //}
     }
 }

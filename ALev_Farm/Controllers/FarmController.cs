@@ -14,32 +14,32 @@ namespace ALev_Farm.Controllers
     {
         private IFarmRepository _farmRepository;
 
-        public FarmController()
-        {
-            var unitOfWork = new UnitOfWork();
-            _farmRepository = unitOfWork.FarmRepository;
-        }
+        //public FarmController()
+        //{
+        //    var unitOfWork = new UnitOfWork();
+        //    _farmRepository = unitOfWork.FarmRepository;
+        //}
 
-        // GET: Farm
-        public IEnumerable<FarmEntity> Get()
-        {
-            return _farmRepository.GetAll();
-        }
+        //// GET: Farm
+        //public IEnumerable<FarmEntity> Get()
+        //{
+        //    return _farmRepository.GetAll();
+        //}
 
-        public void Post([FromBody] FarmEntity farm)
-        {
-            _farmRepository.Add(farm);
-        }
+        //public void Post([FromBody] FarmEntity farm)
+        //{
+        //    _farmRepository.Add(farm);
+        //}
 
-        public void Delete([FromBody] FarmEntity farm)
-        {
-            _farmRepository.DeleteFarm(farm);
-        }
+        //public void Delete([FromBody] FarmEntity farm)
+        //{
+        //    _farmRepository.DeleteFarm(farm);
+        //}
 
-        public FarmEntity Get(int id)
-        {
-            return _farmRepository.GetFarmById(id);
-        }
+        //public FarmEntity Get(int id)
+        //{
+        //    return _farmRepository.GetFarmById(id);
+        //}
 
     }
 }
