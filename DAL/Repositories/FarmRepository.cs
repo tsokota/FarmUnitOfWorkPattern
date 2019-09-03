@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Entities.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,34 +10,36 @@ namespace DAL.Repositories
 {
     public class FarmRepository : IFarmRepository
     {
-        //private FarmStorage _farmStorage;
+        private FarmContext db = new FarmContext();
 
-        //public FarmRepository(FarmStorage farm)
-        //{
-        //    _farmStorage = farm;
-        //}
+        public FarmRepository(FarmContext farm)
+        {
+            db = farm;
+        }
 
-        //public void Add(FarmEntity farm)
-        //{
-        //    _farmStorage.AddFarm(farm);
-        //}
+        public void Add(FarmEntity farm)
+        {
+            db.FarmEntities.Add(farm);
+        }
 
-        //public IEnumerable<FarmEntity> GetAll()
-        //{
-        //    return _farmStorage.GetAllAnimals();
-        //}
+        public IEnumerable<FarmEntity> GetAll()
+        {
+            return db.FarmEntities.ToList();
+        }
 
+        public void DeleteFarm(FarmEntity farm)
+        {
+            db.FarmEntities.Remove(farm);
+        }
 
-        //public void DeleteFarm(FarmEntity farm)
-        //{
-        //    int id = farm.Id;
-        //    _farmStorage.DeleteFarm(id);
-        //}
+        public FarmEntity GetFarmById(int id)
+        {
+            return db.FarmEntities.First(x => x.Id==id);
+        }
 
-        //public FarmEntity GetFarmById(int id)
-        //{
-        //    return _farmStorage.GetFarmById(id);
-        //}
-
+        public void UpdateFarm(FarmEntity farm)
+        {
+            db.Entry(farm).State = EntityState.Modified;
+        }
     }
 }

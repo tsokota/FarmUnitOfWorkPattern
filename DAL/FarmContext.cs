@@ -1,6 +1,6 @@
 namespace DAL
 {
-    using DAL.Entities;
+    using Entities.Models;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -13,5 +13,19 @@ namespace DAL
         }
 
         public virtual DbSet<FarmEntity> FarmEntities { get; set; }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker
+                .Entries<IDeletable>()
+                .Where(e => e.State == System.Data.Entity.EntityState.Deleted))
+            {
+                entry.Entity.IsDelete = true;
+                entry.Entity.DelitingDate = DateTime.Now;
+                entry.State = System.Data.Entity.EntityState.Modified;
+            }
+
+            return base.SaveChanges();
+        }
     }
 }

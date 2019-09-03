@@ -1,6 +1,6 @@
 ﻿using DAL;
-using DAL.Entities;
 using DAL.Repositories;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,34 +12,38 @@ namespace ALev_Farm.Controllers
 {
     public class FarmController : ApiController
     {
-        private IFarmRepository _farmRepository;
+        private IUnitOfWork _unitOfWork;
 
-        //public FarmController()
-        //{
-        //    var unitOfWork = new UnitOfWork();
-        //    _farmRepository = unitOfWork.FarmRepository;
-        //}
+        public FarmController(IUnitOfWork unit)
+        {
+            _unitOfWork = unit;
+        }
 
-        //// GET: Farm
-        //public IEnumerable<FarmEntity> Get()
-        //{
-        //    return _farmRepository.GetAll();
-        //}
+        // GET: Farm
+        public IEnumerable<FarmEntity> Get()
+        {
+            return _unitOfWork.FarmRepository.GetAll();
+        }
 
-        //public void Post([FromBody] FarmEntity farm)
-        //{
-        //    _farmRepository.Add(farm);
-        //}
+        public void Post([FromBody] FarmEntity farm)
+        {
+            _unitOfWork.FarmRepository.Add(farm);
+        }
 
-        //public void Delete([FromBody] FarmEntity farm)
-        //{
-        //    _farmRepository.DeleteFarm(farm);
-        //}
+        public void Delete([FromBody] FarmEntity farm)
+        {
+            _unitOfWork.FarmRepository.DeleteFarm(farm);
+        }
 
-        //public FarmEntity Get(int id)
-        //{
-        //    return _farmRepository.GetFarmById(id);
-        //}
+        public FarmEntity Get(int id)
+        {
+            return _unitOfWork.FarmRepository.GetFarmById(id);
+        }
+
+        public void Update([FromBody] FarmEntity farm)
+        {
+            _unitOfWork.FarmRepository.UpdateFarm(farm);
+        }
 
     }
 }
