@@ -13,7 +13,7 @@ namespace DAL.Repositories
         void DeleteFarm(FarmEntity farm);
         IEnumerable<FarmEntity> GetAll();
         FarmEntity GetFarmById(int id);
-
+       // void Init(IFarmContext farmContext);
         void UpdateFarm(FarmEntity farm);
     }
 }

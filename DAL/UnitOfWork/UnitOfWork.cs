@@ -15,10 +15,11 @@ namespace DAL
 
         private bool disposed;
 
-        public UnitOfWork(IFarmContext farmContext, IFarmRepository repo)
+        public UnitOfWork(IFarmContext сontext, IFarmRepository repo)
         {
-            db = farmContext;
+            db = сontext;
             _farmRepository = repo;
+          //  _farmRepository.Init(db);
             disposed = false;
         }
 
@@ -35,9 +36,9 @@ namespace DAL
             }
         }
 
-        public void Save()
+        public int Save()
         {
-            db.SaveChanges();
+            return db.SaveChanges();
         }
 
         public virtual void Dispose(bool disposing)

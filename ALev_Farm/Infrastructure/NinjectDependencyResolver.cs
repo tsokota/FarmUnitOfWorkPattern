@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http.Dependencies;
 
 namespace ALev_Farm.Infrastructure
 {
@@ -17,6 +17,16 @@ namespace ALev_Farm.Infrastructure
         {
             kernel = kernelParam;
             AddBindings();
+        }
+
+        public IDependencyScope BeginScope()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
 
         public object GetService(Type serviceType)
@@ -31,8 +41,9 @@ namespace ALev_Farm.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IFarmRepository>().To<FarmRepository>();
-            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            IFarmContext farmContext = new FarmContext();
+            kernel.Bind<IFarmRepository>().To<FarmRepository>().WithConstructorArgument("сontext", farmContext);
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("сontext", farmContext);
             kernel.Bind<IFarmContext>().To<FarmContext>();
         }
     }

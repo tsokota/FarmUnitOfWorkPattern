@@ -10,11 +10,11 @@ namespace DAL.Repositories
 {
     public class FarmRepository : IFarmRepository
     {
-        private IFarmContext db = new FarmContext();
+        private IFarmContext db;
 
-        public FarmRepository(IFarmContext farm)
+        public FarmRepository(IFarmContext сontext)
         {
-            db = farm;
+            db = сontext;
         }
 
         public void Add(FarmEntity farm)
@@ -24,12 +24,13 @@ namespace DAL.Repositories
 
         public IEnumerable<FarmEntity> GetAll()
         {
-            return db.FarmEntities.ToList();
+            return db.FarmEntities.Where(x=>x.IsDelete!=true).ToList();
         }
 
         public void DeleteFarm(FarmEntity farm)
         {
-            db.FarmEntities.Remove(farm);
+            var obj = GetFarmById(farm.Id);
+            db.FarmEntities.Remove(obj);
         }
 
         public FarmEntity GetFarmById(int id)
@@ -39,7 +40,13 @@ namespace DAL.Repositories
 
         public void UpdateFarm(FarmEntity farm)
         {
-            db.Entry(farm).State = EntityState.Modified;
+            var obj = GetFarmById(farm.Id);
+            db.Entry(obj).CurrentValues.SetValues(farm);
         }
+
+        //public void Init(IFarmContext farmContext)
+        //{
+        //    db = farmContext;
+        //}
     }
 }

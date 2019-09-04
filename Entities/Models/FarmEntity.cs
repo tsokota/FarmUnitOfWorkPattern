@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class FarmEntity
+    public class FarmEntity:IDeletable
     {
         public int Id { get; set; }
 

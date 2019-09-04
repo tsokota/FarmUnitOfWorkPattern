@@ -8,6 +8,6 @@ namespace DAL
 
         void Dispose();
         void Dispose(bool disposing);
-        void Save();
+        int Save();
     }
 }

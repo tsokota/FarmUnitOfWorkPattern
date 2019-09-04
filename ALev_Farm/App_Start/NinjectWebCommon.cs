@@ -4,7 +4,9 @@
 namespace ALev_Farm.App_Start
 {
     using System;
+    using System.Configuration;
     using System.Web;
+    using System.Web.Http;
     using ALev_Farm.Infrastructure;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -44,6 +46,7 @@ namespace ALev_Farm.App_Start
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             
             RegisterServices(kernel);
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
             return kernel;
         }
 
@@ -53,7 +56,8 @@ namespace ALev_Farm.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            System.Web.Mvc.DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+    
+         //   System.Web.Mvc.DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }        
     }
 }
