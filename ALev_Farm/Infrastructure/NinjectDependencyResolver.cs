@@ -42,8 +42,8 @@ namespace ALev_Farm.Infrastructure
         private void AddBindings()
         {
             IFarmContext farmContext = new FarmContext();
-            kernel.Bind<IFarmRepository>().To<FarmRepository>().WithConstructorArgument("сontext", farmContext);
-            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("сontext", farmContext);
+            kernel.Bind<IFarmRepository>().To<FarmRepository>().WithConstructorArgument("context", farmContext);
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("context", farmContext);
             kernel.Bind<IFarmContext>().To<FarmContext>();
         }
     }

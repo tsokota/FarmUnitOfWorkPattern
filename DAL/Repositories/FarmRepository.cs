@@ -12,9 +12,9 @@ namespace DAL.Repositories
     {
         private IFarmContext db;
 
-        public FarmRepository(IFarmContext сontext)
+        public FarmRepository(IFarmContext context)
         {
-            db = сontext;
+            db = context;
         }
 
         public void Add(FarmEntity farm)

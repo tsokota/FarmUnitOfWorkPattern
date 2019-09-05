@@ -11,30 +11,17 @@ namespace DAL
     {
         private IFarmContext db;
 
-        private IFarmRepository _farmRepository;
-
         private bool disposed;
 
-        public UnitOfWork(IFarmContext сontext, IFarmRepository repo)
+        public UnitOfWork(IFarmContext context)
         {
-            db = сontext;
-            _farmRepository = repo;
-          //  _farmRepository.Init(db);
+            db = context;
+            FarmRepository = new FarmRepository(context);
+            //  _farmRepository.Init(db);
             disposed = false;
         }
 
-        public IFarmRepository FarmRepository
-        {
-            get
-            {
-                //if (_farmRepository == null)
-                //{
-                //    _farmRepository = new FarmRepository(_farmStorage);
-                //}
-
-                return _farmRepository;
-            }
-        }
+        public IFarmRepository FarmRepository { get; }
 
         public int Save()
         {
