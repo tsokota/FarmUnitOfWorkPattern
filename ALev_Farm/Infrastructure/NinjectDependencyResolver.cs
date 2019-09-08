@@ -1,6 +1,7 @@
 ﻿using DAL;
 using DAL.Repositories;
 using Ninject;
+using Services.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,9 +43,11 @@ namespace ALev_Farm.Infrastructure
         private void AddBindings()
         {
             IFarmContext farmContext = new FarmContext();
+            kernel.Bind<IFarmService>().To<FarmService>();
             kernel.Bind<IFarmRepository>().To<FarmRepository>().WithConstructorArgument("context", farmContext);
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("context", farmContext);
             kernel.Bind<IFarmContext>().To<FarmContext>();
+         
         }
     }
 }

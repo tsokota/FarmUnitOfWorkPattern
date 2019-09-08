@@ -184,12 +184,16 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{05b25ecc-f042-4d51-8381-6ecb0ea03526}</Project>
+      <Project>{05B25ECC-F042-4D51-8381-6ECB0EA03526}</Project>
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{B22F4F8B-0DBC-457D-93CF-014A4AC75535}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{da5ad050-9979-4c5c-994d-24dda2124cbb}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

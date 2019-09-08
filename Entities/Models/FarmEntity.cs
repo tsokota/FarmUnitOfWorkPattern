@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class FarmEntity:IDeletable
+    public class FarmEntity: IDeletable
     {
         public int Id { get; set; }
 
@@ -16,6 +16,8 @@ namespace Entities.Models
         public string OwnerName { get; set; }
 
         public int AmountOfAnimals { get; set; }
+
+        public double?  Cost { get; set; }
 
         public bool? IsDelete { get; set; }
 
