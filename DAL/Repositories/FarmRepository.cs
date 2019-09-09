@@ -35,18 +35,13 @@ namespace DAL.Repositories
 
         public FarmEntity GetFarmById(int id)
         {
-            return db.FarmEntities.First(x => x.Id==id);
+            return db.FarmEntities.FirstOrDefault(x => x.Id==id);
         }
 
         public void UpdateFarm(FarmEntity farm)
         {
             var obj = GetFarmById(farm.Id);
-            db.Entry(obj).CurrentValues.SetValues(farm);
+            db.FarmEntities.Attach(obj);
         }
-
-        //public void Init(IFarmContext farmContext)
-        //{
-        //    db = farmContext;
-        //}
     }
 }
