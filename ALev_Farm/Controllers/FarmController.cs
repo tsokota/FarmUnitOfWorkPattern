@@ -56,7 +56,7 @@ namespace ALev_Farm.Controllers
         [SwaggerOperation(Tags = new[] { "Business" })]
         [Route("api/Farm/AverageCostAnimal")]
         [HttpGet]
-        public IEnumerable<double> AverageCostAnimal()
+        public IEnumerable<double> GetAverageCostAnimal()
         {
             return _farmService.AverageCostAnimal();
         }
@@ -73,7 +73,7 @@ namespace ALev_Farm.Controllers
         [SwaggerOperation(Tags = new[] { "Business" })]
         [Route("api/Farm/AverageCostAnimal/farmIds")]
         [HttpPost]
-        public double AverageCostAnimal(IEnumerable<int> farmIds)
+        public IEnumerable<double> GetAverageCostAnimal(IEnumerable<int> farmIds)
         {
             return _farmService.AverageCostAnimal(farmIds);
         }

@@ -7,7 +7,7 @@ namespace Services.Services
     {
         void AddFarm(FarmEntity farm);
         IEnumerable<double> AverageCostAnimal();
-        double AverageCostAnimal(IEnumerable<int> farmIds);
+        IEnumerable<double> AverageCostAnimal(IEnumerable<int> farmIds);
         double AverageCostAnimal(int farmId);
         double AverageFarmsCost();
         void DeleteFarm(FarmEntity farm);

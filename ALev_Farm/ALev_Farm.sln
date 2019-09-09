@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "..\Entities\Ent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "..\Services\Services.csproj", "{DA5AD050-9979-4C5C-994D-24DDA2124CBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmDAL_Tests", "..\FarmDAL_Tests\FarmDAL_Tests.csproj", "{A5C7BE03-D498-44B1-96B2-D63C371B718D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FarmDAL_Tests", "..\FarmDAL_Tests\FarmDAL_Tests.csproj", "{A5C7BE03-D498-44B1-96B2-D63C371B718D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmServices_TEST", "..\FarmServices_TEST\FarmServices_TEST.csproj", "{563D4E43-AA9A-4C5A-807E-DD167CA6CAE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A5C7BE03-D498-44B1-96B2-D63C371B718D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5C7BE03-D498-44B1-96B2-D63C371B718D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5C7BE03-D498-44B1-96B2-D63C371B718D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563D4E43-AA9A-4C5A-807E-DD167CA6CAE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563D4E43-AA9A-4C5A-807E-DD167CA6CAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563D4E43-AA9A-4C5A-807E-DD167CA6CAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563D4E43-AA9A-4C5A-807E-DD167CA6CAE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

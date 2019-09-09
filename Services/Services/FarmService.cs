@@ -73,16 +73,16 @@ namespace Services.Services
             return res;
         }
 
-        public double AverageCostAnimal(IEnumerable<int> farmIds)
+        public IEnumerable<double> AverageCostAnimal(IEnumerable<int> farmIds)
         {
-            var result = new Dictionary<int, double>();
+            var result = new List<double>();
 
             farmIds.ToList().ForEach(x =>
             {
-                result.Add(x, AverageCostAnimal(x));
+                result.Add(AverageCostAnimal(x));
             });
 
-            return 0;
+            return result;
         }
 
         public double AverageFarmsCost()
